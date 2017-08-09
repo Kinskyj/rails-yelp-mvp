@@ -4,8 +4,8 @@
       <%= simple_form_for @restaurant do |f| %>
         <%= f.input :name %>
         <%= f.input :address %>
-        <%= f.input :category %>
-        <%= f.submit %>
+        <%= f.input :category, collection: ["chinese", "italian", "japanese", "french", "belgian"] %>
+        <%= f.submit class: 'btn btn-primary'%>
       <% end %>
     </div>
   </div>
