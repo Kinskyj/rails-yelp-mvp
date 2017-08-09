@@ -1,15 +1,39 @@
-<h1>The best restaurants in town:</h1>
-<ul>
-  <% @restaurants.each do |restaurant| %>
-    <li>
-      <%= restaurant.name %>
-      <%= link_to 'Show reviews', restaurant_path(restaurant) %>
-      <%= link_to 'Add review', new_restaurant_review_path(restaurant) %>
-    </li>
-  <% end %>
-</ul>
+<div class="banner" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%), url('<%= image_path "banner.jpg" %>');">
+  <p>The best restaurants in town</p>
+</div>
 
-<%= link_to 'Add restaurant', new_restaurant_path %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-offset-2 col-sm-8">
+        <ul style="list-style: none; padding: 0;">
+          <% @restaurants.each do |restaurant| %>
+            <li>
+            <!--   <%= restaurant.name %>
+               -->
+              <div class="product">
+                <div class='product-body'>
+                  <h3><%= restaurant.name %></h3>
+                  <p><%= restaurant.category %></p>
+                </div>
+                <ul class="list-inline product-controls hidden-sm hidden-xs">
+                  <%= link_to restaurant_path(restaurant) do %>
+                    <i class="fa fa-share"></i>
+                  <% end %>
+                  <%= link_to new_restaurant_review_path(restaurant) do %>
+                    <i class="fa fa-star"></i>
+                  <% end %>
+                </ul>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 
 
